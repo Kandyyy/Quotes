@@ -13,21 +13,21 @@ class Speaker:
     
     def wish(self) -> str:
         if self.time >= 6 and self.time < 12:
-            self.greeting="Good Morning Samit"
+            self.greeting="Good Morning"
 
         elif self.time >= 12 and self.time <= 16:
-            self.greeting="Good Afternoon Samit"
+            self.greeting="Good Afternoon"
 
         elif self.time > 16 and self.time < 20:
-            self.greeting="Good Evening Samit"
+            self.greeting="Good Evening"
 
         elif self.time >= 20 and self.time <= 23:
-            self.greeting="Good Night Samit"
+            self.greeting="Good Night"
         else:
             self.greeting="Good night"
         return self.greeting
 
-toast = Notification(app_id="windows app", title="Winotify Test Toast", msg="New Notification!")
 spkr = Speaker(int(datetime.datetime.now().time().hour))
-speak.Speak(spkr.wish())
+toast = Notification(app_id=spkr.wish(), title="The wise words of " + quote["author"], msg=quote["text"],icon=r"E:\VScode\Python\Notifier\sunIcon.ico")
+speak.Speak(spkr.wish() + "Samit")
 toast.show()
